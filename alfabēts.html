@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidģet Alfabēts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #575e69;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .alphabet-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            position: relative; /* Needed for absolute positioning of the button */
+        }
+        .letter-box {
+            width: 140pt;
+            height: 140pt;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .letter-box:hover {
+            background-color: #007bff;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+        .popup {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        .popup img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .letter-box.active .popup {
+            transform: translateX(-50%) scale(1);
+        }
+        .back-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="alphabet-container" id="alphabetBox">
+        <!-- Poga tiek ievietota šeit, tas būs apakšējā labajā stūrī alfabēta kontainerī -->
+        <button class="back-button" onclick="window.location.href = 'index.html';">Atpakaļ uz paneli</button>
+    </div>
+
+    <script>
+        const alphabet = ["A", "Ā", "B", "C", "Č", "D", "E", "Ē", "F", "G", "Ģ", "H", "I", "Ī", "J", "K", "Ķ", "L", "Ļ", "M", "N", "Ņ", "O", "P", "R", "S", "Š", "T", "U", "Ū", "V", "Z", "Ž"];
+        const alphabetBox = document.getElementById("alphabetBox");
+
+        alphabet.forEach(letter => {
+            const box = document.createElement("div");
+            box.classList.add("letter-box");
+            box.textContent = letter;
+
+            const popup = document.createElement("div");
+            popup.classList.add("popup");
+            const img = document.createElement("img");
+            img.src = `images/${letter}.png`;
+            popup.appendChild(img);
+
+            box.appendChild(popup);
+
+            const audio = document.createElement("audio");
+            audio.src = `audio/${letter}.wav`;
+            audio.preload = "auto";
+
+            box.appendChild(audio);
+
+            box.addEventListener("mouseenter", () => {
+                audio.play();
+            });
+
+            box.addEventListener("click", () => {
+                if (box.classList.contains("active")) {
+                    box.classList.remove("active"); // Aizver popup
+                } else {
+                    document.querySelectorAll(".letter-box").forEach(b => b.classList.remove("active"));
+                    box.classList.add("active"); // Atver popup
+                }
+            });
+
+            alphabetBox.appendChild(box);
+        });
+    </script>
+</body>
+</html>
