@@ -23,7 +23,9 @@
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            position: relative; /* Needed for absolute positioning of the button */
+            position: relative;
+            width: 100%;
+            max-width: 980pt; /* To ensure the container doesn't become too wide on larger screens */
         }
         .letter-box {
             width: 140pt;
@@ -87,6 +89,41 @@
         }
         .back-button:hover {
             background-color: #0056b3;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .alphabet-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+            }
+
+            .letter-box {
+                width: 100pt;
+                height: 100pt;
+                font-size: 56px;
+            }
+
+            .back-button {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .alphabet-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns on small screens */
+            }
+
+            .letter-box {
+                width: 80pt;
+                height: 80pt;
+                font-size: 48px;
+            }
+
+            .back-button {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
