@@ -17,7 +17,7 @@
             justify-content: center;
             min-height: 100vh;
         }
-        
+
         .module-container {
             max-width: 880px;
             width: 100%;
@@ -28,9 +28,9 @@
             padding: 20px;
             text-align: center;
         }
-        
-        
-        
+
+
+
         .image-container img {
             max-width: 100%;
             height: auto;
@@ -80,11 +80,11 @@
         .back-button:hover {
             background: #0056b3;
         }
-        
-        
-        
+
+
+
     </style>
-    
+
 </head>
 <body>
 <div class="module-container">
@@ -113,13 +113,13 @@
 <script>
 const sentences = [
     {
-        sentence: "Redzi gaismu sarkano, Nedrīkst braukt , Ne iet, Ne skriet! Kad ir luksaforā zaļš – vari droši tālāk iet!",
+        sentence: "Redzi gaismu sarkano, Nedrīkst braukt , Ne iet, Ne skriet! Kad ir luksoforā zaļš – vari droši tālāk iet!",
         words: [
             { word: "Redzi gaismu sarkano", image: "images/redzi.png", audio: "audio/redzi.wav" },
             { word: "Nedrīkst braukt,", image: "images/nebraukt.png", audio: "audio/nebraukt.wav" },
             { word: "Ne iet,", image: "images/neiet.png", audio: "audio/neiet.wav" },
             { word: "Ne skriet!", image: "images/neskriet.png", audio: "audio/neskriet.wav" },
-            { word: "Kad ir luksaforā zaļš,", image: "images/zals.png", audio: "audio/zals.wav" },
+            { word: "Kad ir luksoforā zaļš,", image: "images/zals.png", audio: "audio/zals.wav" },
             { word: "Vari droši tālāk iet!", image: "images/drosiiet.png", audio: "audio/drosiiet.wav" },
         ]
     }
@@ -195,7 +195,7 @@ document.getElementById('start-button').addEventListener('click', () => {
     if (!intervalId) {
         intervalId = setInterval(nextWord, duration);
         updateWord(currentSentenceIndex, currentWordIndex);
-        
+
     }
 });
 
