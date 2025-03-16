@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
+            background-color: #575e69;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,7 +17,7 @@
             justify-content: center;
             min-height: 100vh;
         }
-        
+
         .module-container {
             max-width: 880px;
             width: 100%;
@@ -28,9 +28,9 @@
             padding: 20px;
             text-align: center;
         }
-        
-        
-        
+
+
+
         .image-container img {
             max-width: 100%;
             height: auto;
@@ -80,11 +80,11 @@
         .back-button:hover {
             background: #0056b3;
         }
-        
-        
-        
+
+
+
     </style>
-    
+
 </head>
 <body>
 <div class="module-container">
@@ -194,7 +194,7 @@ document.getElementById('start-button').addEventListener('click', () => {
     if (!intervalId) {
         intervalId = setInterval(nextWord, duration);
         updateWord(currentSentenceIndex, currentWordIndex);
-        
+
     }
 });
 
