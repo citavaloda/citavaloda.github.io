@@ -58,13 +58,10 @@
     }
 
     /* CENTRĒŠANAS LABOJUMI UZNIRSTOŠAJĀ LOGĀ UN ATTĒLAM */
-    .popup {
+.popup {
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        transform: scale(0);
         width: 100%;
         height: 100%;
         background-color: #fff;
@@ -74,10 +71,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s ease-in-out;
-        z-index: 5;
+        transition: transform 0.3s ease;
+        z-index: 10;
         box-sizing: border-box;
+        
+        /* Izmēru maiņas punkts tieši centrā un sākuma mērogs 0 */
+        transform-origin: center center;
+        transform: scale(0);
     }
+
+
 
     .popup img {
         max-width: 100%;
@@ -91,6 +94,7 @@
     }
 
     .letter-box.active .popup {
+        /* Pilnībā nosedz kārtiņu bez nobīdēm */
         transform: scale(1);
     }
 
