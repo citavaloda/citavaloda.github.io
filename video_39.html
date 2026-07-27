@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dzejoļi vieglajā valodā - Saule spīd</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #575e69;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 1000px;
+        box-sizing: border-box;
+    }
+
+    #title {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #title h2 {
+        margin: 0;
+        color: #333333;
+        font-size: 2.2rem;
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #000;
+    }
+
+    .back-button {
+        margin-top: 25px;
+        padding: 12px 24px;
+        background-color: #007bff;
+        color: white;
+        font-size: 18px;
+        border: none;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: flex-end;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    }
+
+    @media screen and (max-width: 768px) {
+        #title h2 {
+            font-size: 1.5rem;
+        }
+        
+        .container {
+            padding: 15px;
+        }
+        
+        .back-button {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="title"><h2>Dzejoļi vieglajā valodā - Saule spīd</h2></div>
+    <video src="video/Dzejo%C4%BCi%20vieglaj%C4%81%20valod%C4%81/Saule%20sp%C4%ABd.mp4" controls></video>
+    <button class="back-button" onclick="window.location.href = 'index.html';">Atpakaļ uz paneli</button>
+</div>
+</body>
+</html>
