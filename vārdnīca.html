@@ -15,7 +15,7 @@
         min-height: 100vh;
         margin: 0;
         flex-direction: column;
-        position: relative; /* Added to fix button position */
+        position: relative;
     }
 
     .alphabet-container {
@@ -26,10 +26,10 @@
         padding: 20px;
         border-radius: 12px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        position: relative; /* This will be the reference for the button's positioning */
+        position: relative;
         width: 100%;
         max-width: 980pt;
-        padding-bottom: 50px; /* Added padding to ensure button is not covered */
+        padding-bottom: 50px;
     }
 
     .letter-box {
@@ -57,27 +57,36 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
+    /* CENTRĒŠANAS LABOJUMI UZNIRSTOŠAJĀ LOGĀ UN ATTĒLAM */
     .popup {
         position: absolute;
         top: 0;
-        left: 50%;
-        transform: translateX(-50%) scale(0);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: scale(0);
         width: 100%;
         height: 100%;
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 10px;
+        padding: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s;
+        transition: transform 0.3s ease-in-out;
+        z-index: 5;
+        box-sizing: border-box;
     }
 
     .popup img {
         max-width: 100%;
         max-height: 100%;
-        object-fit: cover;
+        width: auto;
+        height: auto;
+        object-fit: contain; /* Nodrošina pilnu attēla redzamību un proporcionalitāti centriņā */
+        display: block;
+        margin: auto;
         border-radius: 6px;
     }
 
@@ -147,280 +156,274 @@ if(localStorage.getItem('cinema-mode')==='true') document.body.classList.add('ci
 <script>if(localStorage.getItem('sidebar-collapsed')==='true') document.querySelector('.app-layout').classList.add('sidebar-collapsed');</script>
     <aside class="sidebar">
         <!-- Injected Styles for Sidebar -->
+        <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+            overflow: hidden !important;
+        }
         
-    <style>
-    * { box-sizing: border-box; }
-    body {
-        margin: 0 !important;
-        padding: 0 !important;
-        display: block !important;
-        overflow: hidden !important; /* App layout will handle scrolling */
-    }
-    
-    .app-layout {
-        display: flex;
-        height: 100vh;
-        width: 100vw;
-        background-color: #575e69;
-        font-family: 'Inter', Arial, sans-serif;
-    }
-    
-    .sidebar {
-        width: 340px;
-        flex-shrink: 0;
-        background-color: #ffffff;
-        overflow-y: auto;
-        padding: 20px;
-        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
-        z-index: 10;
-    }
-    
-    .main-content {
-        flex: 1;
-        overflow-y: auto;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 40px 20px;
-    }
-    
-    /* Menu Styles Extracted */
-    .satura-content {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
+        .app-layout {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            background-color: #575e69;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        
+        .sidebar {
+            width: 340px;
+            flex-shrink: 0;
+            background-color: #ffffff;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+        
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+        
+        /* Menu Styles Extracted */
+        .satura-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
 
-    .satura-page {
-        width: 100%;
-    }
+        .satura-page {
+            width: 100%;
+        }
 
-    .dropdown {
-        background-color: #ffffff;
-        border-radius: 8px;
-    }
+        .dropdown {
+            background-color: #ffffff;
+            border-radius: 8px;
+        }
 
-    .dropdown summary {
-        list-style: none;
-        cursor: pointer;
-        outline: none;
-    }
+        .dropdown summary {
+            list-style: none;
+            cursor: pointer;
+            outline: none;
+        }
 
-    .dropdown summary::-webkit-details-marker {
-        display: none;
-    }
+        .dropdown summary::-webkit-details-marker {
+            display: none;
+        }
 
-    .dropdown > summary h2 {
-        font-size: 1rem;
-        color: #444;
-        margin: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid #eaeaea;
-        transition: color 0.3s;
-    }
+        .dropdown > summary h2 {
+            font-size: 1rem;
+            color: #444;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eaeaea;
+            transition: color 0.3s;
+        }
 
-    .dropdown > summary h2:hover {
-        color: #007bff;
-    }
+        .dropdown > summary h2:hover {
+            color: #007bff;
+        }
 
-    .dropdown > summary h2::after {
-        content: '►';
-        font-size: 1rem;
-        transition: transform 0.3s ease;
-        color: #777;
-    }
+        .dropdown > summary h2::after {
+            content: '►';
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+            color: #777;
+        }
 
-    .dropdown[open] > summary h2::after {
-        transform: rotate(90deg);
-    }
+        .dropdown[open] > summary h2::after {
+            transform: rotate(90deg);
+        }
 
-    .dropdown-content {
-        padding-top: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
+        .dropdown-content {
+            padding-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-    .dropdown-content a {
-        display: block;
-        font-size: 1rem;
-        color: #007bff;
-        text-decoration: none;
-        background-color: #f9f9f9;
-        padding: 10px 15px;
-        border-radius: 6px;
-        transition: background-color 0.3s, color 0.3s, transform 0.2s;
-    }
+        .dropdown-content a {
+            display: block;
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: none;
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
 
-    .dropdown-content a:hover {
-        background-color: #007bff;
-        color: #ffffff;
-        transform: translateX(4px);
-    }
-    
-    .dropdown-content a.active {
-        background-color: #007bff;
-        color: #ffffff;
-        font-weight: bold;
-    }
+        .dropdown-content a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+        
+        .dropdown-content a.active {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: bold;
+        }
 
-    .sub-dropdown {
-        margin-bottom: 8px;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-    }
+        .sub-dropdown {
+            margin-bottom: 8px;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+        }
 
-    .sub-dropdown > summary h2 {
-        color: #007bff;
-        background-color: #f9f9f9;
-        padding: 10px 15px;
-        border-radius: 6px;
-        border-bottom: none;
-        transition: background-color 0.3s, color 0.3s, transform 0.2s;
-    }
+        .sub-dropdown > summary h2 {
+            color: #007bff;
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-bottom: none;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
 
-    .sub-dropdown > summary:hover h2 {
-        background-color: #007bff;
-        color: #ffffff;
-        transform: translateX(4px);
-    }
+        .sub-dropdown > summary:hover h2 {
+            background-color: #007bff;
+            color: #ffffff;
+            transform: translateX(4px);
+        }
 
-    .sub-dropdown > summary h2::after {
-        color: #007bff;
-    }
-    
-    .sub-dropdown > summary:hover h2::after {
-        color: #ffffff;
-    }
-    
-    
-    /* Floating Action Buttons */
-    .fab-container {
-        position: fixed;
-        z-index: 1000;
-        display: flex;
-        gap: 15px;
-    }
-    .fab-container.top-right {
-        top: 20px;
-        right: 20px;
-    }
-    .fab-container.top-left {
-        top: 20px;
-        left: 360px; /* Right next to sidebar */
-        transition: left 0.3s ease;
-    }
-    .app-layout.sidebar-collapsed .fab-container.top-left {
-        left: 20px;
-    }
-    .fab-button {
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 1px solid #ddd;
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s ease;
-        outline: none;
-    }
-    .fab-button:hover {
-        background-color: #fff;
-        transform: scale(1.1);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
-    
-    /* Sidebar Toggle Logic */
-    .sidebar {
-        transition: transform 0.3s ease, margin-left 0.3s ease;
-    }
-    .app-layout.sidebar-collapsed .sidebar {
-        margin-left: -340px;
-    }
-    @media screen and (max-width: 900px) {
-        .fab-container.top-left {
-            left: 20px !important; /* On mobile it's always on left */
+        .sub-dropdown > summary h2::after {
+            color: #007bff;
+        }
+        
+        .sub-dropdown > summary:hover h2::after {
+            color: #ffffff;
+        }
+        
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+        .fab-container.top-right {
             top: 20px;
+            right: 20px;
+        }
+        .fab-container.top-left {
+            top: 20px;
+            left: 360px;
+            transition: left 0.3s ease;
+        }
+        .app-layout.sidebar-collapsed .fab-container.top-left {
+            left: 20px;
+        }
+        .fab-button {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .fab-button:hover {
+            background-color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Sidebar Toggle Logic */
+        .sidebar {
+            transition: transform 0.3s ease, margin-left 0.3s ease;
         }
         .app-layout.sidebar-collapsed .sidebar {
-            margin-left: 0;
-            margin-top: -100vh;
-            display: none; 
+            margin-left: -340px;
         }
-    }
-    
-    /* Cinema Mode Logic */
-    body.cinema-mode .app-layout {
-        background-color: #111 !important;
-    }
-    body.cinema-mode .sidebar {
-        background-color: #1a1a1a !important;
-        box-shadow: none !important;
-        border-right: 1px solid #333;
-    }
-    body.cinema-mode .sidebar * {
-        color: #888 !important;
-        border-color: #333 !important;
-    }
-    body.cinema-mode .sidebar .dropdown-content a:hover,
-    body.cinema-mode .sidebar .dropdown-content a.active {
-        background-color: #333 !important;
-        color: #ddd !important;
-    }
-    body.cinema-mode .sidebar .dropdown-content a,
-    body.cinema-mode .sidebar .sub-dropdown > summary h2 {
-        background-color: #222 !important;
-    }
-    
-    /* Fixed Sidebar Colors */
-    body.cinema-mode .sidebar .dropdown {
-        background-color: transparent !important;
-    }
-    body.cinema-mode .sidebar .dropdown > summary h2 {
-        background-color: #1a1a1a !important;
-        border-color: #333 !important;
-    }
-    body.cinema-mode .fab-button {
-        background-color: #333;
-        color: #eee;
-        border-color: #555;
-    }
-    body.cinema-mode .fab-button:hover {
-        background-color: #444;
-    }
-    
-    /* Extra specific resets for cinema mode */
-    body.cinema-mode .sidebar .dropdown > summary h2 {
-        background-color: transparent !important;
-    }
+        @media screen and (max-width: 900px) {
+            .fab-container.top-left {
+                left: 20px !important;
+                top: 20px;
+            }
+            .app-layout.sidebar-collapsed .sidebar {
+                margin-left: 0;
+                margin-top: -100vh;
+                display: none; 
+            }
+        }
+        
+        /* Cinema Mode Logic */
+        body.cinema-mode .app-layout {
+            background-color: #111 !important;
+        }
+        body.cinema-mode .sidebar {
+            background-color: #1a1a1a !important;
+            box-shadow: none !important;
+            border-right: 1px solid #333;
+        }
+        body.cinema-mode .sidebar * {
+            color: #888 !important;
+            border-color: #333 !important;
+        }
+        body.cinema-mode .sidebar .dropdown-content a:hover,
+        body.cinema-mode .sidebar .dropdown-content a.active {
+            background-color: #333 !important;
+            color: #ddd !important;
+        }
+        body.cinema-mode .sidebar .dropdown-content a,
+        body.cinema-mode .sidebar .sub-dropdown > summary h2 {
+            background-color: #222 !important;
+        }
+        
+        body.cinema-mode .sidebar .dropdown {
+            background-color: transparent !important;
+        }
+        body.cinema-mode .sidebar .dropdown > summary h2 {
+            background-color: #1a1a1a !important;
+            border-color: #333 !important;
+        }
+        body.cinema-mode .fab-button {
+            background-color: #333;
+            color: #eee;
+            border-color: #555;
+        }
+        body.cinema-mode .fab-button:hover {
+            background-color: #444;
+        }
+        
+        body.cinema-mode .sidebar .dropdown > summary h2 {
+            background-color: transparent !important;
+        }
 
-    /* Mobile responsive */
-    @media screen and (max-width: 900px) {
-        .app-layout {
-            flex-direction: column;
+        @media screen and (max-width: 900px) {
+            .app-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                max-height: 50vh;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            .main-content {
+                padding: 20px 10px;
+            }
         }
-        .sidebar {
-            width: 100%;
-            height: auto;
-            max-height: 50vh;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .main-content {
-            padding: 20px 10px;
-        }
-    }
-    </style>
+        </style>
 
-        <!-- Injected Sidebar Menu -->
         <div style="margin-bottom: 20px;">
             <button class="back-button" onclick="window.location.href='index.html'" style="width: 100%; text-align: center; margin-top: 0; align-self: auto;">Atpakaļ uz paneli</button>
         </div>
@@ -443,7 +446,7 @@ if(localStorage.getItem('cinema-mode')==='true') document.body.classList.add('ci
                 </details>
             </div>
 
-                                                                        <div class="satura-page">
+            <div class="satura-page">
                 <details class="dropdown">
                     <summary><h2>Video saturs</h2></summary>
                     <div class="dropdown-content">
@@ -621,7 +624,7 @@ if(localStorage.getItem('cinema-mode')==='true') document.body.classList.add('ci
                     </div>
                 </details>
             </div>
-                        <div class="satura-page">
+            <div class="satura-page">
                 <details class="dropdown">
                     <summary><h2>Cits saturs</h2></summary>
                     <div class="dropdown-content">
@@ -629,92 +632,83 @@ if(localStorage.getItem('cinema-mode')==='true') document.body.classList.add('ci
                     </div>
                 </details>
             </div>
-            
-
         </div>
     </aside>
+
     <main class="main-content">
+        <!-- Floating Action Buttons -->
+        <div class="fab-container top-left">
+            <button id="sidebar-toggle" class="fab-button" title="Rādīt/Slēpt izvēlni">☰</button>
+        </div>
+        <div class="fab-container top-right">
+            <button id="cinema-toggle" class="fab-button" title="Izslēgt/Ieslēgt gaismu">💡</button>
+        </div>
 
-    <!-- Floating Action Buttons -->
-    <div class="fab-container top-left">
-        <button id="sidebar-toggle" class="fab-button" title="Rādīt/Slēpt izvēlni">☰</button>
-    </div>
-    <div class="fab-container top-right">
-        <button id="cinema-toggle" class="fab-button" title="Izslēgt/Ieslēgt gaismu">💡</button>
-    </div>
+        <div class="alphabet-container" id="alphabetBox">
+        </div>
 
-        
-    <div class="alphabet-container" id="alphabetBox">
-        <!-- The button is still in the bottom-right corner of the alphabet container -->
-        
-    </div>
+        <script>
+            const alphabet = ["A", "Ā", "B", "C", "Č", "D", "E", "Ē", "F", "G", "Ģ", "H", "I", "Ī", "J", "K", "Ķ", "L", "Ļ", "M", "N", "Ņ", "O", "P", "R", "S", "Š", "T", "U", "Ū", "V", "Z", "Ž"];
+            const alphabetBox = document.getElementById("alphabetBox");
 
-    <script>
-        const alphabet = ["A", "Ā", "B", "C", "Č", "D", "E", "Ē", "F", "G", "Ģ", "H", "I", "Ī", "J", "K", "Ķ", "L", "Ļ", "M", "N", "Ņ", "O", "P", "R", "S", "Š", "T", "U", "Ū", "V", "Z", "Ž"];
-        const alphabetBox = document.getElementById("alphabetBox");
+            alphabet.forEach(letter => {
+                const box = document.createElement("div");
+                box.classList.add("letter-box");
+                box.textContent = letter;
 
-        alphabet.forEach(letter => {
-            const box = document.createElement("div");
-            box.classList.add("letter-box");
-            box.textContent = letter;
+                const popup = document.createElement("div");
+                popup.classList.add("popup");
+                const img = document.createElement("img");
+                img.src = `images/${letter}.png`;
+                popup.appendChild(img);
 
-            const popup = document.createElement("div");
-            popup.classList.add("popup");
-            const img = document.createElement("img");
-            img.src = `images/${letter}.png`;
-            popup.appendChild(img);
+                box.appendChild(popup);
 
-            box.appendChild(popup);
+                const audio = document.createElement("audio");
+                audio.src = `audio/${letter}.wav`;
+                audio.preload = "auto";
 
-            const audio = document.createElement("audio");
-            audio.src = `audio/${letter}.wav`;
-            audio.preload = "auto";
+                box.appendChild(audio);
 
-            box.appendChild(audio);
+                box.addEventListener("mouseenter", () => {
+                    audio.play();
+                });
 
-            box.addEventListener("mouseenter", () => {
-                audio.play();
+                box.addEventListener("click", () => {
+                    if (box.classList.contains("active")) {
+                        box.classList.remove("active");
+                    } else {
+                        document.querySelectorAll(".letter-box").forEach(b => b.classList.remove("active"));
+                        box.classList.add("active");
+                    }
+                });
+
+                alphabetBox.appendChild(box);
             });
-
-            box.addEventListener("click", () => {
-                if (box.classList.contains("active")) {
-                    box.classList.remove("active"); // Close popup
-                } else {
-                    document.querySelectorAll(".letter-box").forEach(b => b.classList.remove("active"));
-                    box.classList.add("active"); // Open popup
-                }
-            });
-
-            alphabetBox.appendChild(box);
-        });
-    </script>
-
+        </script>
     </main>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname.split('/').pop();
-    if (!currentPath) return; // on root folder
+    if (!currentPath) return;
     
     const links = document.querySelectorAll('.sidebar .satura-content a');
     links.forEach(link => {
         const href = link.getAttribute('href');
         if (href && href === currentPath) {
             link.classList.add('active');
-            // Auto open parent details
             let parent = link.closest('details');
             while (parent) {
                 parent.open = true;
                 parent = parent.parentElement.closest('details');
             }
-            // Scroll sidebar to the active link
             link.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     });
 });
 </script>
-
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -723,7 +717,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const appLayout = document.querySelector('.app-layout');
     const body = document.body;
 
-    // Load saved preferences
     if (localStorage.getItem('sidebar-collapsed') === 'true') {
         appLayout.classList.add('sidebar-collapsed');
     }
@@ -732,7 +725,6 @@ document.addEventListener("DOMContentLoaded", () => {
         cinemaToggle.textContent = '☀️';
     }
 
-    // Toggle Sidebar
     if (sidebarToggle) {
         sidebarToggle.addEventListener('click', () => {
             appLayout.classList.toggle('sidebar-collapsed');
@@ -740,7 +732,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Toggle Cinema Mode
     if (cinemaToggle) {
         cinemaToggle.addEventListener('click', () => {
             body.classList.toggle('cinema-mode');
