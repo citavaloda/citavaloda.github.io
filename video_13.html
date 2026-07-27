@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dzejoļi vieglajā valodā - La, la lapiņas</title>
+    <title>13. Luksafors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Inter', Arial, sans-serif;
         background-color: #575e69;
         display: flex;
         justify-content: center;
@@ -24,7 +25,7 @@
         background-color: #ffffff;
         padding: 30px;
         border-radius: 12px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         width: 100%;
         max-width: 1000px;
         box-sizing: border-box;
@@ -40,13 +41,14 @@
         margin: 0;
         color: #333333;
         font-size: 2.2rem;
+        font-weight: 700;
     }
 
     video {
         width: 100%;
         height: auto;
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         background-color: #000;
     }
 
@@ -57,15 +59,18 @@
         color: white;
         font-size: 18px;
         border: none;
-        font-weight: bold;
+        font-weight: 600;
         border-radius: 8px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
         align-self: flex-end;
     }
 
     .back-button:hover {
         background-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
     }
 
     @media screen and (max-width: 768px) {
@@ -86,8 +91,8 @@
 </head>
 <body>
 <div class="container">
-    <div id="title"><h2>Dzejoļi vieglajā valodā - La, la lapiņas</h2></div>
-    <video src="video/Dzejo%C4%BCi%20vieglaj%C4%81%20valod%C4%81/La%2C%20la%20%20lapi%C5%86as.mp4" controls></video>
+    <div id="title"><h2>13. Luksafors</h2></div>
+    <video src="video/Cits%20vieglaj%C4%81%20valod%C4%81/Luksafors.mp4" controls></video>
     <button class="back-button" onclick="window.location.href = 'index.html';">Atpakaļ uz paneli</button>
 </div>
 </body>

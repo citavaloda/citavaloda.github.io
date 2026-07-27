@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informācijas panelis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
             background-color: #575e69;
             margin: 0;
             padding: 0;
@@ -75,11 +76,14 @@
             margin-top: 20px;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
         }
 
         .panelis-container button:hover {
             background-color: #004494;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
         }
 
         .satura-container {
@@ -95,7 +99,7 @@
         .satura-content {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 0;
         }
 
         .satura-page {
@@ -165,6 +169,7 @@
         .dropdown-content a:hover {
             background-color: #007bff;
             color: #ffffff;
+            transform: translateX(4px);
         }
 
         .donation-container {
@@ -239,7 +244,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #eaeaea;
             transition: color 0.3s;
         }
@@ -303,194 +308,195 @@
                 </details>
             </div>
 
-
-                                                <div class="satura-page">
+                                                                        <div class="satura-page">
                 <details class="dropdown">
                     <summary><h2>Video saturs</h2></summary>
-                                            <details class="dropdown sub-dropdown">
-                            <summary><h2>Citi vieglajā valodā</h2></summary>
-                            <div class="dropdown-content">
-                                <a href="video_4.html">Acis vaļā</a>
-                                <a href="video_5.html">Auto brauc</a>
-                                <a href="video_6.html">Auto</a>
-                                <a href="video_7.html">Bite</a>
-                                <a href="video_8.html">Bungas rīb</a>
-                                <a href="video_9.html">Deja ar zaķi</a>
-                                <a href="video_10.html">Graudi, graudi</a>
-                                <a href="video_11.html">Graudiņi sniegā</a>
-                                <a href="video_12.html">Kā saka</a>
-                                <a href="video_13.html">La, la lapiņas</a>
-                                <a href="video_14.html">La, la lapas</a>
-                                <a href="video_15.html">Leļļu veļas diena</a>
-                                <a href="video_16.html">Luksafors</a>
-                                <a href="video_17.html">Mammai</a>
-                                <a href="video_18.html">Par lāci</a>
-                                <a href="video_19.html">Par Latviju</a>
-                                <a href="video_20.html">Par Rūķi</a>
-                                <a href="video_21.html">Par U</a>
-                                <a href="video_22.html">Par auto</a>
-                                <a href="video_23.html">Par balonu</a>
-                                <a href="video_24.html">Par biti</a>
-                                <a href="video_25.html">Par bumbu</a>
-                                <a href="video_26.html">Par klučiem</a>
-                                <a href="video_27.html">Par krūzi</a>
-                                <a href="video_28.html">Par lapām</a>
-                                <a href="video_29.html">Par luksaforu</a>
-                                <a href="video_30.html">Par medu</a>
-                                <a href="video_31.html">Par mākoni</a>
-                                <a href="video_32.html">Par olu grozu</a>
-                                <a href="video_33.html">Par skudru</a>
-                                <a href="video_34.html">Par ziedu!</a>
-                                <a href="video_35.html">Par ziemu</a>
-                                <a href="video_36.html">Plaukš un taukš</a>
-                                <a href="video_37.html">Pupiņu zupa</a>
-                                <a href="video_38.html">Redzi gaismu</a>
-                                <a href="video_39.html">Saule spīd</a>
-                                <a href="video_40.html">Skudra</a>
-                                <a href="video_41.html">Sveiks, sveiks!</a>
-                                <a href="video_42.html">Sēkla mazā</a>
-                                <a href="video_43.html">Taure</a>
-                                <a href="video_44.html">Vāru, vāru</a>
-                                <a href="video_45.html">Rudens darzs</a>
-                            </div>
-                        </details>
                     <div class="dropdown-content">
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Alberts Ločmelis</h2></summary>
+                            <summary><h2>1. Cits vieglajā valodā</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_1.html">Raganu āboli</a>
+                                <a href="video_1.html">1. Acis vaļā</a>
+                                <a href="video_2.html">2. Auto brauc</a>
+                                <a href="video_3.html">3. Auto</a>
+                                <a href="video_4.html">4. Bite</a>
+                                <a href="video_5.html">5. Bungas rīb</a>
+                                <a href="video_6.html">6. Deja ar zaķi</a>
+                                <a href="video_7.html">7. Graudi, graudi</a>
+                                <a href="video_8.html">8. Graudiņi sniegā</a>
+                                <a href="video_9.html">9. Kā saka</a>
+                                <a href="video_10.html">10. La, la lapiņas</a>
+                                <a href="video_11.html">11. La, la lapas</a>
+                                <a href="video_12.html">12. Leļļu veļas diena</a>
+                                <a href="video_13.html">13. Luksafors</a>
+                                <a href="video_14.html">14. Mammai</a>
+                                <a href="video_15.html">15. Par lāci</a>
+                                <a href="video_16.html">16. Par Latviju</a>
+                                <a href="video_17.html">17. Par Rūķi</a>
+                                <a href="video_18.html">18. Par U</a>
+                                <a href="video_19.html">19. Par auto</a>
+                                <a href="video_20.html">20. Par balonu</a>
+                                <a href="video_21.html">21. Par biti</a>
+                                <a href="video_22.html">22. Par bumbu</a>
+                                <a href="video_23.html">23. Par klučiem</a>
+                                <a href="video_24.html">24. Par krūzi</a>
+                                <a href="video_25.html">25. Par lapām</a>
+                                <a href="video_26.html">26. Par luksaforu</a>
+                                <a href="video_27.html">27. Par medu</a>
+                                <a href="video_28.html">28. Par mākoni</a>
+                                <a href="video_29.html">29. Par olu grozu</a>
+                                <a href="video_30.html">30. Par skudru</a>
+                                <a href="video_31.html">31. Par ziedu!</a>
+                                <a href="video_32.html">32. Par ziemu</a>
+                                <a href="video_33.html">33. Plaukš un taukš</a>
+                                <a href="video_34.html">34. Pupiņu zupa</a>
+                                <a href="video_35.html">35. Redzi gaismu</a>
+                                <a href="video_36.html">36. Saule spīd</a>
+                                <a href="video_37.html">37. Skudra</a>
+                                <a href="video_38.html">38. Sveiks, sveiks!</a>
+                                <a href="video_39.html">39. Sēkla mazā</a>
+                                <a href="video_40.html">40. Taure</a>
+                                <a href="video_41.html">41. Vāru, vāru</a>
+                                <a href="video_42.html">42. Rudens darzs</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Andris Vējāns</h2></summary>
+                            <summary><h2>2. Alberts Ločmelis</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_2.html">Septembris klāt</a>
+                                <a href="video_43.html">1. Raganu āboli</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Apodziņš</h2></summary>
+                            <summary><h2>3. Andris Vējāns</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_3.html">Pavasaris</a>
+                                <a href="video_44.html">1. Septembris klāt</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Dzidra Rinkule-Zemzare</h2></summary>
+                            <summary><h2>4. Apodziņš</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_46.html">1 daļa</a>
-                                <a href="video_47.html">2 daļa</a>
-                                <a href="video_48.html">Sēņotāji 2 daļa</a>
-                                <a href="video_49.html">Sēņotāji 1 daļa</a>
+                                <a href="video_45.html">1. Pavasaris</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Erna Līduma</h2></summary>
+                            <summary><h2>5. Dzidra Rinkule-Zemzare</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_50.html">Kaķīts mans</a>
+                                <a href="video_46.html">1. 1 daļa</a>
+                                <a href="video_47.html">2. 2 daļa</a>
+                                <a href="video_48.html">3. Sēņotāji 2 daļa</a>
+                                <a href="video_49.html">4. Sēņotāji 1 daļa</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Jānis Poruks</h2></summary>
+                            <summary><h2>6. Erna Līduma</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_51.html">Tracis 1 daļa</a>
-                                <a href="video_52.html">Tracis 2 daļa</a>
-                                <a href="video_53.html">Tracis 3 daļa</a>
-                                <a href="video_54.html">Tracis 4 daļa</a>
+                                <a href="video_50.html">1. Kaķīts mans</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Kārlis Kazāks</h2></summary>
+                            <summary><h2>7. Jānis Poruks</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_55.html">1 daļa</a>
-                                <a href="video_56.html">2 daļa</a>
+                                <a href="video_51.html">1. Tracis 1 daļa</a>
+                                <a href="video_52.html">2. Tracis 2 daļa</a>
+                                <a href="video_53.html">3. Tracis 3 daļa</a>
+                                <a href="video_54.html">4. Tracis 4 daļa</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Latv. tautasdziesmas</h2></summary>
+                            <summary><h2>8. Kārlis Kazāks</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_57.html">Adat bērni</a>
-                                <a href="video_58.html">Aijā žūžū lāča bērni</a>
-                                <a href="video_59.html">Ar gailīti Rīgā</a>
-                                <a href="video_60.html">Cepu, cepu</a>
-                                <a href="video_61.html">Cipu, capu vāverīte</a>
-                                <a href="video_62.html">Dūmi kūp</a>
-                                <a href="video_63.html">Es iejūdzu raibu zaķi</a>
-                                <a href="video_64.html">Ezītim, ezītim</a>
-                                <a href="video_65.html">Kaķīts raud</a>
-                                <a href="video_66.html">Ko, runcīti, tu domāji</a>
-                                <a href="video_67.html">Kur tu teci</a>
-                                <a href="video_68.html">Kurš putniņš</a>
-                                <a href="video_69.html">Lai bij prieki</a>
-                                <a href="video_70.html">Lauz meitiņa</a>
-                                <a href="video_71.html">Lācis kāpa</a>
-                                <a href="video_72.html">Maza bija</a>
-                                <a href="video_73.html">Melna čūska miltus mala</a>
-                                <a href="video_74.html">Ods nokrita</a>
-                                <a href="video_75.html">Putra, kājas apavusi</a>
-                                <a href="video_76.html">Roku mazgāšana</a>
-                                <a href="video_77.html">Sidrabiņa lietiņš</a>
-                                <a href="video_78.html">Suņi zaķim pēdas dzina</a>
-                                <a href="video_79.html">Sēņotāji, sēņotāji</a>
-                                <a href="video_80.html">Uguntiņs stiprs vīrs</a>
-                                <a href="video_81.html">Velc pelīte</a>
-                                <a href="video_82.html">Vilkam</a>
-                                <a href="video_83.html">Visu nakti sveces dega</a>
-                                <a href="video_84.html">Zinu, zinu</a>
+                                <a href="video_55.html">1. 1 daļa</a>
+                                <a href="video_56.html">2. 2 daļa</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Māris Čaklais</h2></summary>
+                            <summary><h2>9. Latv. tautasdziesmas</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_85.html">Atpūta ceļā</a>
-                                <a href="video_86.html">Ežu alfabets</a>
-                                <a href="video_87.html">INTERVIJA AR SKUMJO GOVIM M- Čaklais</a>
-                                <a href="video_88.html">Ežu alfabets</a>
+                                <a href="video_57.html">1. Adat bērni</a>
+                                <a href="video_58.html">2. Aijā žūžū lāča bērni</a>
+                                <a href="video_59.html">3. Ar gailīti Rīgā</a>
+                                <a href="video_60.html">4. Cepu, cepu</a>
+                                <a href="video_61.html">5. Cipu, capu vāverīte</a>
+                                <a href="video_62.html">6. Dūmi kūp</a>
+                                <a href="video_63.html">7. Es iejūdzu raibu zaķi</a>
+                                <a href="video_64.html">8. Ezītim, ezītim</a>
+                                <a href="video_65.html">9. Kaķīts raud</a>
+                                <a href="video_66.html">10. Ko, runcīti, tu domāji</a>
+                                <a href="video_67.html">11. Kur tu teci</a>
+                                <a href="video_68.html">12. Kurš putniņš</a>
+                                <a href="video_69.html">13. Lai bij prieki</a>
+                                <a href="video_70.html">14. Lauz meitiņa</a>
+                                <a href="video_71.html">15. Lācis kāpa</a>
+                                <a href="video_72.html">16. Maza bija</a>
+                                <a href="video_73.html">17. Melna čūska miltus mala</a>
+                                <a href="video_74.html">18. Ods nokrita</a>
+                                <a href="video_75.html">19. Putra, kājas apavusi</a>
+                                <a href="video_76.html">20. Roku mazgāšana</a>
+                                <a href="video_77.html">21. Sidrabiņa lietiņš</a>
+                                <a href="video_78.html">22. Suņi zaķim pēdas dzina</a>
+                                <a href="video_79.html">23. Sēņotāji, sēņotāji</a>
+                                <a href="video_80.html">24. Uguntiņs stiprs vīrs</a>
+                                <a href="video_81.html">25. Velc pelīte</a>
+                                <a href="video_82.html">26. Vilkam</a>
+                                <a href="video_83.html">27. Visu nakti sveces dega</a>
+                                <a href="video_84.html">28. Zinu, zinu</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Ojārs Vācietis</h2></summary>
+                            <summary><h2>10. Māris Čaklais</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_89.html">Punktiņš, punktiņš, komatiņš</a>
+                                <a href="video_85.html">1. Atpūta ceļā</a>
+                                <a href="video_86.html">2. Ežu alfabets</a>
+                                <a href="video_87.html">3. INTERVIJA AR SKUMJO GOVIM M- Čaklais</a>
+                                <a href="video_88.html">4. Ežu alfabets</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Pēteris Sils</h2></summary>
+                            <summary><h2>11. Ojārs Vācietis</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_90.html">Eglīte</a>
-                                <a href="video_91.html">Mežā auga eglīte</a>
+                                <a href="video_89.html">1. Punktiņš, punktiņš, komatiņš</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Rainis</h2></summary>
+                            <summary><h2>12. Pēteris Sils</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_92.html">Kārlītis</a>
-                                <a href="video_93.html">Lellīte slima 1 aina</a>
-                                <a href="video_94.html">Lellīte slima 2 aina</a>
-                                <a href="video_95.html">Leļļu veļas diena</a>
-                                <a href="video_96.html">Lolite baro putni</a>
-                                <a href="video_97.html">Sasistā krūze</a>
-                                <a href="video_98.html">Sunītis mācībā</a>
-                                <a href="video_99.html">Vāverīte</a>
+                                <a href="video_90.html">1. Eglīte</a>
+                                <a href="video_91.html">2. Mežā auga eglīte</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>Vilis Plūdonis</h2></summary>
+                            <summary><h2>13. Rainis</h2></summary>
                             <div class="dropdown-content">
-                                <a href="video_100.html">Pūpoliņi 1. daļa</a>
-                                <a href="video_101.html">Pūpoliņi 2. daļa</a>
+                                <a href="video_92.html">1. Kārlītis</a>
+                                <a href="video_93.html">2. Lellīte slima 1 aina</a>
+                                <a href="video_94.html">3. Lellīte slima 2 aina</a>
+                                <a href="video_95.html">4. Leļļu veļas diena</a>
+                                <a href="video_96.html">5. Lolite baro putni</a>
+                                <a href="video_97.html">6. Sasistā krūze</a>
+                                <a href="video_98.html">7. Sunītis mācībā</a>
+                                <a href="video_99.html">8. Vāverīte</a>
+                            </div>
+                        </details>
+                        <details class="dropdown sub-dropdown">
+                            <summary><h2>14. Vilis Plūdonis</h2></summary>
+                            <div class="dropdown-content">
+                                <a href="video_100.html">1. Pūpoliņi 1. daļa</a>
+                                <a href="video_101.html">2. Pūpoliņi 2. daļa</a>
                             </div>
                         </details>
                     </div>
                 </details>
             </div>
-
-
-
-            <div class="satura-page">
+                        <div class="satura-page">
                 <details class="dropdown">
                     <summary><h2>Cits saturs</h2></summary>
                     <div class="dropdown-content">
-                        <a href="vārdnīca.html">Atveramā vārdnīca</a>
+                        <a href="vārdnīca.html">1. Atveramā vārdnīca</a>
                     </div>
+                </details>
+            </div>
+            
+                </details>
+            </div>
                 </details>
             </div>
 
