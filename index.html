@@ -133,14 +133,14 @@
             color: #007bff;
         }
 
-        .dropdown summary h1::after {
+        .dropdown > summary h1::after {
             content: '►';
             font-size: 1.2rem;
             transition: transform 0.3s ease;
             color: #555;
         }
 
-        .dropdown[open] summary h1::after {
+        .dropdown[open] > summary h1::after {
             transform: rotate(90deg);
         }
 
@@ -232,7 +232,7 @@
             }
         }
     
-        .dropdown summary h2 {
+        .dropdown > summary h2 {
             font-size: 1.2rem;
             color: #444;
             margin: 0;
@@ -240,7 +240,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 8px 0;
-            border-bottom: 1px dashed #eaeaea;
+            border-bottom: 1px solid #eaeaea;
             transition: color 0.3s;
         }
 
@@ -248,14 +248,14 @@
             color: #007bff;
         }
 
-        .dropdown summary h2::after {
+        .dropdown > summary h2::after {
             content: '►';
             font-size: 1rem;
             transition: transform 0.3s ease;
             color: #777;
         }
 
-        .dropdown[open] summary h2::after {
+        .dropdown[open] > summary h2::after {
             transform: rotate(90deg);
         }
         
@@ -288,7 +288,7 @@
         <div class="satura-content">
             <div class="satura-page">
                 <details class="dropdown">
-                    <summary><h1>Dzejoļi Vieglajā Valodā</h1></summary>
+                    <summary><h2>Dzejoļi vieglajā valodā</h2></summary>
                     <div class="dropdown-content">
                         <a href="pirmaispants.html">1. Es un mēs lietu pasaulē.</a>
                         <a href="otraispants.html">2. Rudens veltes.</a>
@@ -306,9 +306,9 @@
 
                                                 <div class="satura-page">
                 <details class="dropdown">
-                    <summary><h1>Video Saturs</h1></summary>
+                    <summary><h2>Video saturs</h2></summary>
                                             <details class="dropdown sub-dropdown">
-                            <summary><h2>Dzejoļi vieglajā valodā</h2></summary>
+                            <summary><h2>Citi vieglajā valodā</h2></summary>
                             <div class="dropdown-content">
                                 <a href="video_4.html">Acis vaļā</a>
                                 <a href="video_5.html">Auto brauc</a>
@@ -487,7 +487,7 @@
 
             <div class="satura-page">
                 <details class="dropdown">
-                    <summary><h1>Cits Saturs</h1></summary>
+                    <summary><h2>Cits saturs</h2></summary>
                     <div class="dropdown-content">
                         <a href="vārdnīca.html">Atveramā vārdnīca</a>
                     </div>
@@ -507,10 +507,11 @@
             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - Drošākais un vienkāršākais veids, kā ziedot tiešsaistē!" alt="Ziedot ar PayPal pogu" />
             <img alt="" border="0" src="https://www.paypal.com/en_LV/i/scr/pixel.gif" width="1" height="1" />
         </form>
-    </div>
-</div>
-<footer>
+        <footer>
     &copy; <?php echo date("Y"); ?> Cita Valoda. Visas tiesības aizsargātas.
 </footer>
+    </div>
+</div>
+
 </body>
 </html>
