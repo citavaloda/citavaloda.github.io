@@ -39,6 +39,15 @@ body {
     transition: opacity 1s ease;
 }
 
+
+.title {
+  width: 200px;
+  border: 1px solid #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
 .text-container p {
     margin: 0;
     font-size: 48px;

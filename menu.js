@@ -2,6 +2,7 @@
     const container = document.getElementById('sidebar-menu-container');
     if (container) {
         container.innerHTML = `<div class="satura-content">
+            <h1 class="satura-heading">Mācību saturs</h1>
             <div class="satura-page">
                 <details class="dropdown">
                     <summary><h2>Dzejoļi vieglajā valodā</h2></summary>
@@ -204,13 +205,264 @@
                     </div>
                 </details>
             </div>
-                        <div class="satura-page">
+            <div class="satura-page">
                 <details class="dropdown">
                     <summary><h2>Cits saturs</h2></summary>
                     <div class="dropdown-content">
                         <a href="vārdnīca.html">1. Vārdnīca</a>
                     </div>
                 </details>
-            </div>`;
+            </div>
+        </div>`;
+    }
+
+    // Inject CitaValoda logo and smooth fade/hover animations on subpages
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+        const oldBackBtn = sidebar.querySelector('.back-button');
+        if (oldBackBtn && oldBackBtn.parentElement) {
+            oldBackBtn.parentElement.remove();
+        }
+        if (!sidebar.querySelector('.sidebar-logo-wrapper')) {
+            const logoWrapper = document.createElement('div');
+            logoWrapper.className = 'sidebar-logo-wrapper';
+            logoWrapper.innerHTML = `<a href="index.html" class="sidebar-logo-link" title="Atpakaļ uz sākumlapu"><img src="logo.png" alt="Cita Valoda"></a>`;
+            sidebar.insertBefore(logoWrapper, sidebar.firstChild);
+        }
+    }
+
+    // Add front-page button next to cinema-toggle (light bulb) on all subpages
+    const topRightFab = document.querySelector('.fab-container.top-right');
+    if (topRightFab && !document.getElementById('home-fab-button')) {
+        const homeBtn = document.createElement('button');
+        homeBtn.id = 'home-fab-button';
+        homeBtn.className = 'fab-button';
+        homeBtn.title = 'Atpakaļ uz sākumlapu';
+        homeBtn.textContent = '🏠';
+        homeBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+        topRightFab.appendChild(homeBtn);
+    }
+
+    if (!document.getElementById('citavaloda-enhanced-styles')) {
+        const style = document.createElement('style');
+        style.id = 'citavaloda-enhanced-styles';
+        style.textContent = `
+            @keyframes cvFadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(18px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes cvDropdownFade {
+                from {
+                    opacity: 0;
+                    transform: translateY(-8px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes cvHeartPulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.18);
+                }
+            }
+
+            .sidebar-logo-wrapper {
+                text-align: center;
+                margin-bottom: 16px;
+                padding-bottom: 14px;
+                border-bottom: 1px solid #eaeaea;
+                animation: cvFadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+            }
+
+            .satura-heading {
+                font-size: 1.85rem;
+                font-weight: 700;
+                color: #222222;
+                margin: 0 0 14px 0;
+                padding: 4px 10px 14px 10px;
+                border-bottom: 2px solid #eaeaea;
+                letter-spacing: -0.01em;
+            }
+
+            body.cinema-mode .satura-heading {
+                color: #cccccc !important;
+                border-bottom-color: #333333 !important;
+            }
+
+            .sidebar-logo-link {
+                display: inline-block;
+                padding: 8px 16px;
+                border-radius: 12px;
+                text-decoration: none;
+                transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease, background-color 0.35s ease;
+            }
+
+            .sidebar-logo-link:hover {
+                transform: scale(1.06) translateY(-2px);
+                filter: drop-shadow(0 6px 14px rgba(0, 123, 255, 0.22));
+                background-color: rgba(0, 123, 255, 0.04);
+            }
+
+            .sidebar-logo-link img {
+                max-width: 115px;
+                height: auto;
+                display: block;
+            }
+
+            body.cinema-mode .sidebar-logo-link {
+                background-color: rgba(255, 255, 255, 0.92) !important;
+            }
+
+            body.cinema-mode .sidebar-logo-link:hover {
+                background-color: #ffffff !important;
+                filter: drop-shadow(0 6px 14px rgba(255, 255, 255, 0.25));
+            }
+
+            .ziedot-menu-wrapper {
+                margin-top: 16px;
+                padding-top: 12px;
+                border-top: 1px solid #eaeaea;
+            }
+
+            .ziedot-menu-link {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 14px 18px;
+                border-radius: 12px;
+                text-decoration: none;
+                background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+                color: #ffffff !important;
+                box-shadow: 0 6px 16px rgba(0, 123, 255, 0.25);
+                transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, filter 0.35s ease;
+            }
+
+            .ziedot-menu-link:hover {
+                transform: translateY(-3px) scale(1.01);
+                box-shadow: 0 10px 24px rgba(0, 123, 255, 0.38);
+                filter: brightness(1.06);
+            }
+
+            .ziedot-menu-left {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+            }
+
+            .ziedot-heart {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.2);
+                color: #ffccd5 !important;
+                font-size: 1.15rem;
+                transition: transform 0.3s ease, background-color 0.3s ease;
+            }
+
+            .ziedot-menu-link:hover .ziedot-heart {
+                animation: cvHeartPulse 0.8s ease infinite;
+                background: rgba(255, 255, 255, 0.28);
+                color: #ffffff !important;
+            }
+
+            .ziedot-text-group {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .ziedot-title {
+                font-size: 1.15rem;
+                font-weight: 700;
+                color: #ffffff !important;
+                line-height: 1.2;
+            }
+
+            .ziedot-subtitle {
+                font-size: 0.82rem;
+                color: rgba(255, 255, 255, 0.85) !important;
+                margin-top: 2px;
+            }
+
+            .ziedot-arrow {
+                font-size: 1.15rem;
+                color: #ffffff !important;
+                transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .ziedot-menu-link:hover .ziedot-arrow {
+                transform: translateX(5px);
+            }
+
+            body.cinema-mode .ziedot-menu-link {
+                background: linear-gradient(135deg, #1f3a60 0%, #152742 100%) !important;
+                box-shadow: none !important;
+                border: 1px solid #333 !important;
+            }
+
+            body.cinema-mode .ziedot-menu-link:hover {
+                background: linear-gradient(135deg, #274a7a 0%, #1b3356 100%) !important;
+            }
+
+            .main-content > .container,
+            .main-content > .module-container,
+            .main-content > .alphabet-container {
+                animation: cvFadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+                transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+            }
+
+            .dropdown[open] > .dropdown-content {
+                animation: cvDropdownFade 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+            }
+
+            .dropdown > summary h2 {
+                padding: 12px 10px;
+                border-radius: 8px;
+                transition: color 0.3s ease, background-color 0.3s ease, padding-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .dropdown:not(.sub-dropdown) > summary:hover h2 {
+                padding-left: 15px;
+                background-color: #f4f8ff;
+            }
+
+            .dropdown-content a {
+                border-left: 3px solid transparent;
+                transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+            }
+
+            .dropdown-content a:hover {
+                transform: translateX(6px) !important;
+                border-left-color: #004494;
+                box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+            }
+
+            .back-button {
+                transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease !important;
+            }
+
+            .back-button:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 6px 16px rgba(0, 123, 255, 0.32) !important;
+            }
+        `;
+        document.head.appendChild(style);
     }
 })();

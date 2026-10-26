@@ -1,64 +1,220 @@
-﻿<!DOCTYPE html>
-<html lang="lv">
+﻿<html lang="lv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citavaloda</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes dropdownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         body {
             font-family: 'Inter', Arial, sans-serif;
             background-color: #575e69;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-        }
-
-        footer {
-            margin-top: 50px;
+            box-sizing: border-box;
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 24px;
             justify-content: center;
-            padding: 20px;
+            padding: 24px;
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            max-width: 880px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            max-width: 1600px;
             width: 100%;
+            box-sizing: border-box;
+            animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: 0.08s;
         }
 
         .logo-container {
             width: 100%;
-            max-width: 880px;
-            padding: 20px;
+            max-width: 1600px;
+            padding: 18px 24px;
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 14px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+            transition: box-shadow 0.35s ease, transform 0.35s ease;
+        }
+
+        .logo-container:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+        }
+
+        .main-logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+        }
+
+        .main-logo-link:hover {
+            transform: scale(1.06);
+            filter: drop-shadow(0 6px 12px rgba(0, 123, 255, 0.2));
         }
 
         .logo-container img {
             max-width: 100px;
+            display: block;
         }
 
+        @keyframes heartPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.18);
+            }
+        }
+
+        .ziedot-menu-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(0, 123, 255, 0.25);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, filter 0.35s ease;
+        }
+
+        .ziedot-menu-link:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 24px rgba(0, 123, 255, 0.38);
+            filter: brightness(1.06);
+        }
+
+        .ziedot-menu-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ziedot-heart {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffccd5;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .ziedot-menu-link:hover .ziedot-heart {
+            animation: heartPulse 0.8s ease infinite;
+            background: rgba(255, 255, 255, 0.28);
+            color: #ffffff;
+        }
+
+        .ziedot-text-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .ziedot-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .ziedot-subtitle {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 2px;
+        }
+
+        .ziedot-arrow {
+            font-size: 1.1rem;
+            color: #ffffff;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .ziedot-menu-link:hover .ziedot-arrow {
+            transform: translateX(5px);
+        }
+
+        .logo3ps-link {
+            display: block;
+            width: 150pt;
+            height: 150pt;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .logo3ps-link:hover {
+            transform: scale(1.05) translateY(-3px);
+            filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.15));
+        }
+
+        .logo3ps-link img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+        }
 
         .panelis-container {
             flex: 1;
             min-width: 300px;
-            max-width: 320px;
+            max-width: 760px;
             background-color: #fff;
-            padding: 20px;
+            padding: 24px;
             justify-content: center;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: 0.16s;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+
+        .panelis-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
         }
 
         .panelis-container h1 {
@@ -89,17 +245,26 @@
         .satura-container {
             flex: 1;
             min-width: 300px;
-            max-width: 400px;
+            max-width: 760px;
             background-color: #ffffff;
-            padding: 20px;
+            padding: 24px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: 0.24s;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+
+        .satura-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
         }
 
         .satura-content {
             display: flex;
             flex-direction: column;
-            gap: 0;
+            gap: 6px;
         }
 
         .satura-page {
@@ -109,6 +274,7 @@
         .dropdown {
             background-color: #ffffff;
             border-radius: 8px;
+            transition: background-color 0.3s ease;
         }
 
         .dropdown summary {
@@ -130,29 +296,36 @@
             align-items: center;
             padding: 10px 0;
             border-bottom: 1px solid #eaeaea;
-            transition: color 0.3s;
+            transition: color 0.3s ease, padding-left 0.3s ease;
         }
 
         .dropdown summary h1:hover {
             color: #007bff;
+            padding-left: 6px;
         }
 
         .dropdown > summary h1::after {
             content: '►';
             font-size: 1.2rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
             color: #555;
         }
 
         .dropdown[open] > summary h1::after {
             transform: rotate(90deg);
+            color: #007bff;
         }
 
         .dropdown-content {
-            padding-top: 15px;
+            padding-top: 12px;
+            padding-bottom: 6px;
             display: flex;
             flex-direction: column;
             gap: 8px;
+        }
+
+        .dropdown[open] > .dropdown-content {
+            animation: dropdownFade 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
 
         .dropdown-content a {
@@ -161,60 +334,50 @@
             color: #007bff;
             text-decoration: none;
             background-color: #f9f9f9;
-            padding: 10px 15px;
-            border-radius: 6px;
-            transition: background-color 0.3s, color 0.3s;
+            padding: 11px 16px;
+            border-radius: 8px;
+            border-left: 3px solid transparent;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .dropdown-content a:hover {
             background-color: #007bff;
             color: #ffffff;
-            transform: translateX(4px);
+            transform: translateX(6px);
+            border-left-color: #004494;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.22);
         }
 
-        .donation-container {
-            max-width: 880px;
+        .site-footer {
+            max-width: 1600px;
             width: 100%;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
+            padding: 16px 24px;
             text-align: center;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            animation: fadeInUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: 0.32s;
         }
-
-        .donation-container h2 {
-            font-size: 1.6rem;
-            color: #333333;
-            margin-bottom: 16px;
-        }
-
-        .donation-container p {
-            font-size: 1rem;
-            color: #555555;
-            margin-bottom: 20px;
-        }
-
-        .paypal-button input[type="image"] {
-            cursor: pointer;
-            border: none;
-            transition: transform 0.3s;
-        }
-
-        .paypal-button input[type="image"]:hover {
-            transform: scale(1.05);
-        }
-
-
 
         .Title {
             margin-top: 25pt;
             font-size: 24px;
             color: #000;
             font-weight: bold;
-            display:block;
+            display: block;
             justify-content: space-evenly;
             text-align: center;
+            margin-bottom: 25pt;
+        }
+
+        .Title-paragraph {
+            padding: 10pt;
+            font-size: 14pt;
+            line-height: 1.6;
+            color: #333;
+            justify-content: center;
         }
 
         @media screen and (max-width: 768px) {
@@ -232,9 +395,6 @@
                 padding: 15px;
                 text-align: center;
             }
-            .donation-container h2 {
-                font-size: 1.4rem;
-            }
         }
     
         .dropdown > summary h2 {
@@ -244,75 +404,86 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
+            padding: 12px 10px;
+            border-radius: 8px;
             border-bottom: 1px solid #eaeaea;
-            transition: color 0.3s;
+            transition: color 0.3s ease, background-color 0.3s ease, padding-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .dropdown summary h2:hover {
             color: #007bff;
+            background-color: #f4f8ff;
+            padding-left: 16px;
         }
 
         .dropdown > summary h2::after {
             content: '►';
             font-size: 1rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
             color: #777;
+        }
+
+        .dropdown[open] > summary h2 {
+            color: #007bff;
         }
 
         .dropdown[open] > summary h2::after {
             transform: rotate(90deg);
+            color: #007bff;
         }
         
         .sub-dropdown {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             box-shadow: none;
             border: 1px solid #f0f0f0;
             padding: 0 10px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sub-dropdown:hover {
+            border-color: #d0e3ff;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08);
         }
 
     </style>
-    <script>
-    </script>
 </head>
 <body>
     <div class="logo-container">
-    <img src="logo.png" alt="Cita Valoda">
-</div>
+        <a href="index.html" class="main-logo-link" title="Cita Valoda"><img src="logo.png" alt="Cita Valoda"></a>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=JAAWMHKELBXJQ" target="_blank" rel="noopener noreferrer" class="ziedot-menu-link" title="PayPal - Drošākais un vienkāršākais veids, kā ziedot tiešsaistē!">
+            <span class="ziedot-menu-left">
+                <span class="ziedot-heart">❤</span>
+                <span class="ziedot-text-group">
+                    <span class="ziedot-title">Ziedot</span>
+                    <span class="ziedot-subtitle">Jūsu ziedojumi palīdz</span>
+                </span>
+            </span>
+            <span class="ziedot-arrow">➜</span>
+        </a>
+    </div>
 <div class="container">
     <div class="panelis-container">
-        <a href="https://r3ps.lv/"><img src="logo3ps.png" alt="Rigas 3 pamatskola" style="width:150pt;height:150pt;margin: 0 auto;display: block;"></a>
+        <a href="https://r3ps.lv/" class="logo3ps-link" title="Rīgas 3. pamatskola"><img src="logo3ps.png" alt="Rigas 3 pamatskola"></a>
         <div class="Title">Cita valoda</div>
-        <hr>
-        <p>Mājas lapas vīzija ir mācību materiālu apkopošana vieglajā valodā.</p>
-        <p><br>Dzejoļi vieglajā valodā ir dažādu autoru adaptēti dzejoļi, ko  iespējams praktiski izmatot pirmsskolas posma mācību saturā izglītojamiem ar GAT.</p>
-        <p><br>Cita valoda saturs tapa sadarbībā ar Rīgas 3. pamatskolas pirmsskolas izglītības skolotāju kolektīvu.</p>
+        <div class="Title-paragraph">
+        "Cita valoda" – jo katram bērnam ir ko teikt.
+        Mūsu vīzija ir radīt vienotu, praktiski izmantojamu mācību materiālu bāzi pirmsskolas vecuma bērniem ar garīgās attīstības (GAT) un autiskā spektra traucējumiem (AST).
+        Mēs zinām, ka runāta valoda nav vienīgais veids, kā izteikt sevi. "Cita valoda" ir radīta kā alternatīva bērniem, kuru saziņas līdzeklis nav vārdi, dodot viņiem iespēju tikt sadzirdētiem un saprastiem. Lai šie materiāli būtu patiesi noderīgi un atbilstu bērnu reālajām vajadzībām, to saturs tapis ciešā sadarbībā ar pieredzes bagāto Rīgas 3. pamatskolas pirmsskolas izglītības pedagogu kolektīvu.</div>
+
     </div>
 
     <div class="satura-container">
         <div id="sidebar-menu-container"></div>
-            
-
-        </div>
     </div>
 </div>
 
-<div class="donation-container">
-    <div class="donation-section">
-        <h2>Atbalstiet</h2>
-        <p>Jūsu ziedojumi palīdz.</p>
-        <form action="https://www.paypal.com/donate" method="post" target="_top" class="paypal-button">
-            <input type="hidden" name="hosted_button_id" value="JAAWMHKELBXJQ" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - Drošākais un vienkāršākais veids, kā ziedot tiešsaistē!" alt="Ziedot ar PayPal pogu" />
-            <img alt="" border="0" src="https://www.paypal.com/en_LV/i/scr/pixel.gif" width="1" height="1" />
-        </form>
-        <footer>
-    &copy; <?php echo date("Y"); ?> Cita Valoda. Visas tiesības aizsargātas.
+<footer class="site-footer">
+    &copy; <span id="copyright-year">2026</span> Cita Valoda. Visas tiesības aizsargātas.
 </footer>
-    </div>
-</div>
 
+<script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+</script>
 <script src="menu.js"></script>
 </body>
 </html>
-
