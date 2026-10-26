@@ -195,13 +195,12 @@
                         <a href="video_10.html">2. La, la lapiņas</a>
                         <a href="video_12.html">3. Leļļu veļas diena</a>
                         <a href="video_15.html">4. Par lāci</a>
-                        <a href="video_18.html">5. Par U</a>
-                        <a href="video_19.html">6. Par auto</a>
-                        <a href="video_21.html">7. Par biti</a>
-                        <a href="video_25.html">8. Par lapām</a>
-                        <a href="video_26.html">9. Par luksaforu</a>
-                        <a href="video_30.html">10. Par skudru</a>
-                        <a href="video_33.html">11. Plaukš un taukš</a>
+                        <a href="video_19.html">5. Par auto</a>
+                        <a href="video_21.html">6. Par biti</a>
+                        <a href="video_25.html">7. Par lapām</a>
+                        <a href="video_26.html">8. Par luksaforu</a>
+                        <a href="video_30.html">9. Par skudru</a>
+                        <a href="video_33.html">10. Plaukš un taukš</a>
                     </div>
                 </details>
             </div>
