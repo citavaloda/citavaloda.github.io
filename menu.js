@@ -33,41 +33,30 @@
                                 <a href="video_5.html">5. Bungas rīb</a>
                                 <a href="video_6.html">6. Deja ar zaķi</a>
                                 <a href="video_7.html">7. Graudi, graudi</a>
-                                <a href="video_8.html">8. Graudiņi sniegā</a>
-                                <a href="video_9.html">9. Kā saka</a>
-                                <a href="video_10.html">10. La, la lapiņas</a>
-                                <a href="video_11.html">11. La, la lapas</a>
-                                <a href="video_12.html">12. Leļļu veļas diena</a>
-                                <a href="video_13.html">13. Luksafors</a>
-                                <a href="video_14.html">14. Mammai</a>
-                                <a href="video_15.html">15. Par lāci</a>
-                                <a href="video_16.html">16. Par Latviju</a>
-                                <a href="video_17.html">17. Par Rūķi</a>
-                                <a href="video_18.html">18. Par U</a>
-                                <a href="video_19.html">19. Par auto</a>
-                                <a href="video_20.html">20. Par balonu</a>
-                                <a href="video_21.html">21. Par biti</a>
-                                <a href="video_22.html">22. Par bumbu</a>
-                                <a href="video_23.html">23. Par klučiem</a>
-                                <a href="video_24.html">24. Par krūzi</a>
-                                <a href="video_25.html">25. Par lapām</a>
-                                <a href="video_26.html">26. Par luksaforu</a>
-                                <a href="video_27.html">27. Par medu</a>
-                                <a href="video_28.html">28. Par mākoni</a>
-                                <a href="video_29.html">29. Par olu grozu</a>
-                                <a href="video_30.html">30. Par skudru</a>
-                                <a href="video_31.html">31. Par ziedu!</a>
-                                <a href="video_32.html">32. Par ziemu</a>
-                                <a href="video_33.html">33. Plaukš un taukš</a>
-                                <a href="video_34.html">34. Pupiņu zupa</a>
-                                <a href="video_35.html">35. Redzi gaismu</a>
-                                <a href="video_36.html">36. Saule spīd</a>
-                                <a href="video_37.html">37. Skudra</a>
-                                <a href="video_38.html">38. Sveiks, sveiks!</a>
-                                <a href="video_39.html">39. Sēkla mazā</a>
-                                <a href="video_40.html">40. Taure</a>
-                                <a href="video_41.html">41. Vāru, vāru</a>
-                                <a href="video_42.html">42. Rudens darzs</a>
+                                <a href="video_9.html">8. Kā saka</a>
+                                <a href="video_11.html">9. La, la lapas</a>
+                                <a href="video_13.html">10. Luksafors</a>
+                                <a href="video_14.html">11. Mammai</a>
+                                <a href="video_16.html">12. Par Latviju</a>
+                                <a href="video_17.html">13. Par Rūķi</a>
+                                <a href="video_20.html">14. Par balonu</a>
+                                <a href="video_22.html">15. Par bumbu</a>
+                                <a href="video_23.html">16. Par klučiem</a>
+                                <a href="video_24.html">17. Par krūzi</a>
+                                <a href="video_27.html">18. Par medu</a>
+                                <a href="video_28.html">19. Par mākoni</a>
+                                <a href="video_29.html">20. Par olu grozu</a>
+                                <a href="video_31.html">21. Par ziedu!</a>
+                                <a href="video_32.html">22. Par ziemu</a>
+                                <a href="video_34.html">23. Pupiņu zupa</a>
+                                <a href="video_35.html">24. Redzi gaismu</a>
+                                <a href="video_36.html">25. Saule spīd</a>
+                                <a href="video_37.html">26. Skudra</a>
+                                <a href="video_38.html">27. Sveiks, sveiks!</a>
+                                <a href="video_39.html">28. Sēkla mazā</a>
+                                <a href="video_40.html">29. Taure</a>
+                                <a href="video_41.html">30. Vāru, vāru</a>
+                                <a href="video_42.html">31. Rudens darzs</a>
                             </div>
                         </details>
                         <details class="dropdown sub-dropdown">
@@ -93,8 +82,8 @@
                             <div class="dropdown-content">
                                 <a href="video_46.html">1. 1 daļa</a>
                                 <a href="video_47.html">2. 2 daļa</a>
-                                <a href="video_49.html">4. Sēņotāji 1 daļa</a>
-                                <a href="video_48.html">3. Sēņotāji 2 daļa</a>
+                                <a href="video_49.html">3. Sēņotāji 1 daļa</a>
+                                <a href="video_48.html">4. Sēņotāji 2 daļa</a>
                                
                             </div>
                         </details>
@@ -195,6 +184,24 @@
                                 <a href="video_101.html">2. Pūpoliņi 2. daļa</a>
                             </div>
                         </details>
+                    </div>
+                </details>
+            </div>
+            <div class="satura-page">
+                <details class="dropdown">
+                    <summary><h2>Audio vieglajā valodā</h2></summary>
+                    <div class="dropdown-content">
+                        <a href="video_8.html">1. Graudiņi sniegā</a>
+                        <a href="video_10.html">2. La, la lapiņas</a>
+                        <a href="video_12.html">3. Leļļu veļas diena</a>
+                        <a href="video_15.html">4. Par lāci</a>
+                        <a href="video_18.html">5. Par U</a>
+                        <a href="video_19.html">6. Par auto</a>
+                        <a href="video_21.html">7. Par biti</a>
+                        <a href="video_25.html">8. Par lapām</a>
+                        <a href="video_26.html">9. Par luksaforu</a>
+                        <a href="video_30.html">10. Par skudru</a>
+                        <a href="video_33.html">11. Plaukš un taukš</a>
                     </div>
                 </details>
             </div>
