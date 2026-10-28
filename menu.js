@@ -210,6 +210,18 @@
                     <summary><h2>Cits saturs</h2></summary>
                     <div class="dropdown-content">
                         <a href="vārdnīca.html">1. Vārdnīca</a>
+                        <details class="dropdown sub-dropdown">
+                            <summary><h2>2. Sociālie stāsti</h2></summary>
+                            <div class="dropdown-content">
+                                <a href="video_102.html">1. Emocijas</a>
+                                <a href="video_103.html">2. Es protu dalīties ar mantām</a>
+                                <a href="video_104.html">3. Lūdzu klusāk!</a>
+                                <a href="video_105.html">4. Palūgt palīdzību</a>
+                                <a href="video_106.html">5. Par draudzēšanos</a>
+                                <a href="video_107.html">6. Pauze</a>
+                                <a href="video_108.html">7. Stop</a>
+                            </div>
+                        </details>
                     </div>
                 </details>
             </div>
