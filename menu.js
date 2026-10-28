@@ -209,9 +209,8 @@
                 <details class="dropdown">
                     <summary><h2>Cits saturs</h2></summary>
                     <div class="dropdown-content">
-                        <a href="vārdnīca.html">1. Vārdnīca</a>
                         <details class="dropdown sub-dropdown">
-                            <summary><h2>2. Sociālie stāsti</h2></summary>
+                            <summary><h2>1. Sociālie stāsti</h2></summary>
                             <div class="dropdown-content">
                                 <a href="video_102.html">1. Emocijas</a>
                                 <a href="video_103.html">2. Es protu dalīties ar mantām</a>
@@ -222,6 +221,7 @@
                                 <a href="video_108.html">7. Stop</a>
                             </div>
                         </details>
+                        <a href="vārdnīca.html">2. Vārdnīca</a>
                     </div>
                 </details>
             </div>
